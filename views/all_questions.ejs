@@ -6,11 +6,11 @@
         
         <h2>All Questions</h2>
         <br>
-        <% if (Questions.length > 0) { %>
-            <% Questions.forEach(Question => { %>
+        <% if (questions.length > 0) { %>
+            <% questions.forEach(question => { %>
                 <a href="/questions/<%=question._id%>">
                 <!-- <h3 class="title"><%= question.name %></h3> -->
-                <p class="snippet"><%= Question.name %></p>
+                <p class="snippet"><%= question.name %></p>
                 </a>
                 <%}) %>
                 <% } %>
