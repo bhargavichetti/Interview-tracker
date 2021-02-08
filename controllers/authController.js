@@ -91,19 +91,19 @@ module.exports.logout_get = (req, res) => {
   res.redirect('/');
 }
 
-module.exports.get_Topics = (req, res) => {
-  Topics.find().then((result) => {res.render('topics', {Topics : result})})
+module.exports.get_topics = (req, res) => {
+  Topics.find().then((result) => {res.render('topics', {topics : result})})
   .catch((err) => console.log(err));
 }
 
-module.exports.get_Question_by_id = (req, res) => {
+module.exports.get_question_by_id = (req, res) => {
   const id = req.params.id;
   Quest.findById(id).then((result) => {
-      res.render('content',{ Question : result });
+      res.render('content',{ question : result });
   }) .catch((error) => console.log(error));
 
 }
-module.exports.get_Question_by_name = (req, res) => {
+module.exports.get_question_by_name = (req, res) => {
   const name = req.params.name;
   Quest.find({topic : name}).then((result) => {
     res.render('all_questions', {questions : result});
@@ -112,7 +112,7 @@ module.exports.get_Question_by_name = (req, res) => {
 module.exports.get_question_by_topics = (req, res) => {
   const id = req.params.id;
   console.log(id);
-  Quest.find({topic : id}).then((result) => res.render('all_questions', {Questions : result}))
+  Quest.find({topic : id}).then((result) => res.render('all_questions', {questions : result}))
   .catch((error) => console.log(error));
   // Quest.find({name : 'Array Sum'}).then((result) => console.log("result : ", result));
   // Quest.find({topic : id}).then((result) => console.log("Abe ab kyu nahi aa rha ", result, id));
