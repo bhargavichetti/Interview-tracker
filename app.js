@@ -44,10 +44,11 @@ databaseConnect();
 // routes
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
+app.get('/inside', requireAuth,(req, res) => res.render('inside'));
 app.get('/smoothies', requireAuth, (req, res) => res.render('smoothies'));
-app.get('/topics', requireAuth, authController.get_Topics);
+app.get('/topics', requireAuth, authController.get_topics);
 app.get('/topics/:id', requireAuth, authController.get_question_by_topics);
-app.get('/questions/:id', requireAuth, authController.get_Question_by_id);
+app.get('/questions/:id', requireAuth, authController.get_question_by_id);
 
 
 //adminbro panel
@@ -69,3 +70,5 @@ const run = async (MongooseDb) => {
 };
 
 app.use(authRoutes);
+
+app.get('/admin',requireAuth);
