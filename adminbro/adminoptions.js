@@ -8,9 +8,11 @@ AdminBro.registerAdapter(AdminBroMongoose);
 const User = require('../models/User');
 const Topic = require('../models/topics');
 const Question = require('../models/question');
+const Company = require('../models/Company');
+const Experience = require('../models/experience');
 
 const options = {
-    resources : [User, Topic, Question],
+    resources : [User, Topic, Question, Comapny, Experience],
     rootPath: '/admin',
     // logoutPath: 'http://localhost:3000/admin/exit',
     // loginPath: 'http://localhost:3000/admin/sign-in',
